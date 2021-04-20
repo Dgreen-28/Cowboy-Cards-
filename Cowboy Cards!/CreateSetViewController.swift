@@ -18,10 +18,16 @@ class CreateSetViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
     
     @IBAction func NextCardButtonTapped(_ sender: Any) {
-        questionArray.append("new")
-        answerArray.append("new")
+        questionArray.append(questionTextView.text)
+        answerArray.append(answerTextView.text)
+
+        questionTextView.text = ""
+        answerTextView.text = ""
 
         print(questionArray)
+        print(answerArray)
+
+        
     }
     
     @IBAction func CreateSetButtonTapped(_ sender: Any) {
