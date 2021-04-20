@@ -48,8 +48,6 @@
 		324ED8D8261CF65400081344 = {
 			isa = PBXGroup;
 			children = (
-				3236813B262F73FC001D0823 /* StudyViewController.swift */,
-				32368138262F7360001D0823 /* CreateSetViewController.swift */,
 				324ED8E3261CF65400081344 /* Cowboy Cards! */,
 				324ED8E2261CF65400081344 /* Products */,
 			);
@@ -68,6 +66,8 @@
 			children = (
 				324ED8E4261CF65400081344 /* AppDelegate.swift */,
 				324ED8E6261CF65400081344 /* SceneDelegate.swift */,
+				32368138262F7360001D0823 /* CreateSetViewController.swift */,
+				3236813B262F73FC001D0823 /* StudyViewController.swift */,
 				8EF0D13B262F77A700A4609B /* TableViewController.swift */,
 				324ED8E8261CF65400081344 /* ViewController.swift */,
 				324ED8EA261CF65400081344 /* Main.storyboard */,
