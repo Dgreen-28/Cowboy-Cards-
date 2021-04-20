@@ -69,7 +69,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqb-XL-ccn">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqb-XL-ccn" userLabel="setTitleTextField">
                                 <rect key="frame" x="65" y="191" width="283" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,6 +83,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAz-w8-KJP" userLabel="CreateSetButton">
                                 <rect key="frame" x="96" y="796" width="222" height="66"/>
                                 <state key="normal" image="button_create-set"/>
+                                <connections>
+                                    <action selector="CreateSetButtonTapped:" destination="p8F-d4-8Us" eventType="touchUpInside" id="Xfb-MP-NJR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qO-vV-v85">
                                 <rect key="frame" x="149.5" y="472.5" width="115" height="45"/>
@@ -116,6 +119,9 @@
                                     <color key="titleColor" red="0.9971000552" green="0.51419067380000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="NextCardButtonTapped:" destination="p8F-d4-8Us" eventType="touchUpInside" id="r04-Rb-SjG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K8P-JK-Uwa"/>
@@ -147,6 +153,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VKi-bJ-LUB"/>
+                    <connections>
+                        <outlet property="answerTextView" destination="p6m-dt-XxP" id="sZV-QQ-8X4"/>
+                        <outlet property="questionTextView" destination="b6m-JB-BLB" id="2bj-zs-JGU"/>
+                        <outlet property="setTitleTextField" destination="kqb-XL-ccn" id="FGi-pU-GVO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67r-j3-UzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +194,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vpH-Zp-UeC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vpH-Zp-UeC" userLabel="FlashcardTextView">
                                 <rect key="frame" x="50" y="290.5" width="314" height="405.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
