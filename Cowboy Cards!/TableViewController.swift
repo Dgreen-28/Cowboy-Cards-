@@ -6,84 +6,82 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
+    var dataSource: [NSManagedObject] = []
+    var appDelegate: AppDelegate?
+    var context: NSManagedObjectContext?
+    var entity: NSEntityDescription?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        context = appDelegate?.persistentContainer.viewContext
+        entity = NSEntityDescription.entity(forEntityName: "FlashCard", in: context!)
+    }
+    
+    @IBAction func unwindFromSave(segue: UIStoryboardSegue) {
+        // Get the segue source - Jeremiah
+        guard let source = segue.source as? CreateSetViewController else {
+            print("Cannot get segue source")
+            return
+        }
+        
+        if let entity = self.entity {
+            // Create a new card record
+            let card = NSManagedObject(entity: entity, insertInto: context)
+            // Set the attributes in the new card record
+            card.setValue(source.setTitleResult, forKey: "storeTitle")
+            card.setValue(source.questionResult, forKey: "storeQuestion")
+            card.setValue(source.answerResult, forKey: "storeAnswer")
+            card.setValue(source.cardNum, forKey: "storeCardNum")
+            
+            do {
+               // Update the data store with the managed context
+                try context?.save()
+                // Add this record to the table view data source
+                dataSource.append(card)
+                // Reload the data in the table view
+                self.tableView.reloadData()
+            }
+            catch let error as NSError {
+                print("Cannot save data: \(error)")
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return dataSource.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
 
         // Configure the cell...
-
+        cell.textLabel?.text = dataSource[indexPath[1]].value(forKey: "storeTitle") as? String
+        cell.detailTextLabel?.text = dataSource[indexPath[1]].value(forKey: "storeCardNum") as? String
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Fetch the database content
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FlashCard")
+        
+        do{
+            dataSource = try context?.fetch(fetchRequest) ?? []
+        }
+        catch let error as NSError {
+            print("Cannot load data: \(error)")
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
