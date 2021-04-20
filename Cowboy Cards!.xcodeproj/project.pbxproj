@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32368138262F7360001D0823 /* CreateSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
+		32368138262F7360001D0823 /* CreateSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateSetViewController.swift; path = "../Cowboy Cards!.xcodeproj/CreateSetViewController.swift"; sourceTree = "<group>"; };
 		3236813B262F73FC001D0823 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		324ED8E1261CF65400081344 /* Cowboy Cards!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cowboy Cards!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324ED8E4261CF65400081344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
