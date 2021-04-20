@@ -18,6 +18,9 @@ class CreateSetViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
     
     @IBAction func NextCardButtonTapped(_ sender: Any) {
+        
+        if(questionTextView.hasText && answerTextView.hasText)
+        {
         questionArray.append(questionTextView.text)
         answerArray.append(answerTextView.text)
 
@@ -26,7 +29,7 @@ class CreateSetViewController: UIViewController {
 
         print(questionArray)
         print(answerArray)
-
+        }
         
     }
     
