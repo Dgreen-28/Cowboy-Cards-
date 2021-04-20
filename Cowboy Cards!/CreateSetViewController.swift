@@ -15,8 +15,6 @@ class CreateSetViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
     var questionArray = [String]()
     var answerArray = [String]()
 
