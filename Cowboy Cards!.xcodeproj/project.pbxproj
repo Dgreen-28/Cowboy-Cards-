@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32368139262F7360001D0823 /* CreateSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32368138262F7360001D0823 /* CreateSetViewController.swift */; };
+		3236813C262F73FC001D0823 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236813B262F73FC001D0823 /* StudyViewController.swift */; };
 		324ED8E5261CF65400081344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324ED8E4261CF65400081344 /* AppDelegate.swift */; };
 		324ED8E7261CF65400081344 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324ED8E6261CF65400081344 /* SceneDelegate.swift */; };
 		324ED8E9261CF65400081344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324ED8E8261CF65400081344 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32368138262F7360001D0823 /* CreateSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
+		3236813B262F73FC001D0823 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		324ED8E1261CF65400081344 /* Cowboy Cards!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cowboy Cards!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324ED8E4261CF65400081344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		324ED8E6261CF65400081344 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		324ED8D8261CF65400081344 = {
 			isa = PBXGroup;
 			children = (
+				3236813B262F73FC001D0823 /* StudyViewController.swift */,
+				32368138262F7360001D0823 /* CreateSetViewController.swift */,
 				324ED8E3261CF65400081344 /* Cowboy Cards! */,
 				324ED8E2261CF65400081344 /* Products */,
 			);
@@ -137,9 +143,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3236813C262F73FC001D0823 /* StudyViewController.swift in Sources */,
 				324ED8E9261CF65400081344 /* ViewController.swift in Sources */,
 				324ED8E5261CF65400081344 /* AppDelegate.swift in Sources */,
 				324ED8E7261CF65400081344 /* SceneDelegate.swift in Sources */,
+				32368139262F7360001D0823 /* CreateSetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
