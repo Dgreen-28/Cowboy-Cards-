@@ -15,6 +15,7 @@
 		324ED8EC261CF65400081344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324ED8EA261CF65400081344 /* Main.storyboard */; };
 		324ED8EE261CF65700081344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324ED8ED261CF65700081344 /* Assets.xcassets */; };
 		324ED8F1261CF65700081344 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324ED8EF261CF65700081344 /* LaunchScreen.storyboard */; };
+		8EF0D13C262F77A700A4609B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0D13B262F77A700A4609B /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		324ED8ED261CF65700081344 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324ED8F0261CF65700081344 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324ED8F2261CF65700081344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF0D13B262F77A700A4609B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				324ED8E4261CF65400081344 /* AppDelegate.swift */,
 				324ED8E6261CF65400081344 /* SceneDelegate.swift */,
+				8EF0D13B262F77A700A4609B /* TableViewController.swift */,
 				324ED8E8261CF65400081344 /* ViewController.swift */,
 				324ED8EA261CF65400081344 /* Main.storyboard */,
 				324ED8ED261CF65700081344 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3236813C262F73FC001D0823 /* StudyViewController.swift in Sources */,
+				8EF0D13C262F77A700A4609B /* TableViewController.swift in Sources */,
 				324ED8E9261CF65400081344 /* ViewController.swift in Sources */,
 				324ED8E5261CF65400081344 /* AppDelegate.swift in Sources */,
 				324ED8E7261CF65400081344 /* SceneDelegate.swift in Sources */,
@@ -297,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FU5874BN54;
 				INFOPLIST_FILE = "Cowboy Cards!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FU5874BN54;
 				INFOPLIST_FILE = "Cowboy Cards!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
