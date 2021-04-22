@@ -28,12 +28,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0tt-rt-Mnn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wOS-8C-iHk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -112,7 +114,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="FRG-L5-VIa" kind="presentation" modalPresentationStyle="fullScreen" id="9fR-9u-GsG"/>
+                                    <segue destination="jg2-C6-c3q" kind="presentation" modalPresentationStyle="fullScreen" id="9fR-9u-GsG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -122,7 +124,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="BQK-cJ-XMs">
+                    <navigationItem key="navigationItem" title="Cowboy Cards!" id="BQK-cJ-XMs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lec-Nb-Eqt">
                             <connections>
                                 <segue destination="p8F-d4-8Us" kind="show" id="g6a-92-AHG"/>
@@ -135,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="926.08695652173924" y="900"/>
         </scene>
-        <!--Create Set View Controller-->
+        <!--Create Set View-->
         <scene sceneID="2Ap-Xe-nlX">
             <objects>
-                <viewController id="p8F-d4-8Us" customClass="CreateSetViewController" customModule="Cowboy_Cards_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Create Set View" id="p8F-d4-8Us" customClass="CreateSetViewController" customModule="Cowboy_Cards_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eys-j1-zeB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +235,7 @@
                             <constraint firstItem="9qO-vV-v85" firstAttribute="centerX" secondItem="eys-j1-zeB" secondAttribute="centerX" id="yi3-CJ-RAv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VKi-bJ-LUB"/>
+                    <navigationItem key="navigationItem" title="Cowboy Cards!" id="VKi-bJ-LUB"/>
                     <connections>
                         <outlet property="answerTextView" destination="p6m-dt-XxP" id="a93-C8-bGB"/>
                         <outlet property="questionTextView" destination="b6m-JB-BLB" id="Vdg-n3-hQp"/>
@@ -280,13 +282,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3W-HM-0W3">
-                                <rect key="frame" x="151.5" y="59" width="111.5" height="31.5"/>
+                                <rect key="frame" x="151.5" y="103" width="111.5" height="31.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vpH-Zp-UeC">
-                                <rect key="frame" x="50" y="290.5" width="314" height="405.5"/>
+                                <rect key="frame" x="50" y="334.5" width="314" height="361.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -307,6 +309,13 @@
                             <constraint firstItem="i3W-HM-0W3" firstAttribute="top" secondItem="Jsj-MZ-qUJ" secondAttribute="top" constant="15" id="szn-Jm-kI6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NWA-sR-eAE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="NAm-xt-pgu">
+                            <connections>
+                                <segue destination="XRn-8v-AGc" kind="presentation" modalPresentationStyle="fullScreen" id="5xd-yN-G2W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardView" destination="vpH-Zp-UeC" id="src-ui-VCp"/>
                         <outlet property="titleLabel" destination="i3W-HM-0W3" id="HT2-pr-7ig"/>
@@ -314,12 +323,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JX-ZX-G4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028.5156249999998" y="92.240117130307453"/>
+            <point key="canvasLocation" x="2937.68115942029" y="91.741071428571431"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Navigation-->
         <scene sceneID="qAP-Af-pBj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cBN-MF-d4o" sceneMemberID="viewController">
+                <navigationController title="View Navigation" automaticallyAdjustsScrollViewInsets="NO" id="cBN-MF-d4o" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LYu-fn-tyd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -334,14 +343,19 @@
             </objects>
             <point key="canvasLocation" x="17.39130434782609" y="93.080357142857139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Table View Navigation-->
         <scene sceneID="9V7-qw-oBs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XRn-8v-AGc" sceneMemberID="viewController">
+                <navigationController title="Table View Navigation" automaticallyAdjustsScrollViewInsets="NO" id="XRn-8v-AGc" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="iz0-zF-3tN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ceK-W5-KXM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -352,8 +366,28 @@
             </objects>
             <point key="canvasLocation" x="15.942028985507248" y="900"/>
         </scene>
+        <!--Study Navigation Controller-->
+        <scene sceneID="J4V-dj-f0z">
+            <objects>
+                <navigationController title="Study Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="jg2-C6-c3q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrowshape.turn.up.left" catalog="system" id="sUz-Cd-5Op">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FRG-L5-VIa" kind="relationship" relationship="rootViewController" id="RoY-ry-zWK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRY-Gj-BFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2027.5362318840582" y="91.741071428571431"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="button_create-set" width="222" height="66"/>
         <image name="button_flip" width="142" height="66"/>
         <image name="button_last-card" width="227" height="66"/>
@@ -363,6 +397,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
