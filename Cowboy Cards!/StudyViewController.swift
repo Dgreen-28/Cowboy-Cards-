@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import CoreData
 
-class StudyViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class StudyViewController: UIViewController{
+    var dataSource: [NSManagedObject] = []
+    var appDelegate: AppDelegate?
+    var context: NSManagedObjectContext?
+    var entity: NSEntityDescription?
+    var tvc = TableViewController()
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBAction func lastCardButton(_ sender: Any) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func flipCardButton(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func nextCardButton(_ sender: Any) {
+    }
+    @IBOutlet weak var cardView: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
+        context = appDelegate?.persistentContainer.viewContext
+        entity = NSEntityDescription.entity(forEntityName: "FlashCard", in: context!)
+        
+    }
 }
