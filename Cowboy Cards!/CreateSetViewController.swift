@@ -29,11 +29,26 @@ class CreateSetViewController: UIViewController {
 
         print(questionArray)
         print(answerArray)
+
         }
         
     }
     
     @IBAction func CreateSetButtonTapped(_ sender: Any) {
+        if(setTitleTextField.hasText && !questionArray.isEmpty && !answerArray.isEmpty)
+        {
+            
+            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                
+            }
+            
+            questionArray.removeAll()
+            answerArray.removeAll()
+            
+            setTitleTextField.text = ""
+            questionTextView.text = ""
+            answerTextView.text = ""
+        }
         
     }
     
