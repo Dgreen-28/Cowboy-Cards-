@@ -18,7 +18,7 @@ extension FlashCard {
 
     @NSManaged public var storeAnswer: String?
     @NSManaged public var storeCardNum: Int32
-    @NSManaged public var storeQuestion: [String]?
+    @NSManaged public var storeQuestion: String?
     @NSManaged public var storeTitle: String?
     @NSManaged public var displayData: NSSet?
 

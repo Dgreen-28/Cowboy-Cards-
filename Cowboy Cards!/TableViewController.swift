@@ -56,6 +56,15 @@ class TableViewController: UITableViewController {
             print("Cannot save data: \(error)")
         }
     }
+    
+    // Prepare segue values to use for CoreData -Jeremiah
+    // I believe this is the key to getting the data to the study view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let card = FlashCard(context: context!)
+        //var title = card.storeTitle
+        //var question = card.storeQuestion
+        
+    }
 
     // MARK: - Table view data source
 

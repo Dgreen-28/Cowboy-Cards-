@@ -10,7 +10,7 @@
     <entity name="FlashCard" representedClassName="FlashCard" syncable="YES">
         <attribute name="storeAnswer" optional="YES" attributeType="String"/>
         <attribute name="storeCardNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="storeQuestion" optional="YES" attributeType="Transformable" valueTransformerName=""/>
+        <attribute name="storeQuestion" optional="YES" attributeType="String" valueTransformerName=""/>
         <attribute name="storeTitle" optional="YES" attributeType="String"/>
         <relationship name="displayData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DisplayCard" inverseName="cardData" inverseEntity="DisplayCard"/>
     </entity>

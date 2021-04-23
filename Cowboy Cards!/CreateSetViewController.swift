@@ -33,7 +33,7 @@ class CreateSetViewController: UIViewController {
     
     // Create var to store to CoreData -Jeremiah
     var setTitleResult = ""
-    var questionResult: [String] = []
+    var questionResult = "" // This should be an array value in order to store all values
     var answerResult = ""
     var cardNum: Int32 = 0
     
@@ -46,7 +46,7 @@ class CreateSetViewController: UIViewController {
     // Prepare segue values to use for CoreData -Jeremiah
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         setTitleResult = setTitleTextField.text ?? "Needs Proper Title"
-        questionResult = questionArray
+        questionResult = questionTextView.text ?? "Needs Proper Question"
         answerResult = answerTextView.text ?? "Needs Proper Answer"
         cardNum = Int32(questionArray.count)
         
