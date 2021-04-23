@@ -9,17 +9,24 @@ import UIKit
 import CoreData
 
 class TableViewController: UITableViewController {
-    var dataSource: [NSManagedObject] = []
+    var dataSource: [FlashCard] = []
     var appDelegate: AppDelegate?
     var context: NSManagedObjectContext?
-    var entity: NSEntityDescription?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         context = appDelegate?.persistentContainer.viewContext
-        entity = NSEntityDescription.entity(forEntityName: "FlashCard", in: context!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        do{
+            dataSource = try context?.fetch(FlashCard.fetchRequest()) ?? []
+        }
+        catch let error as NSError {
+            print("Cannot load data: \(error)")
+        }
     }
     
     @IBAction func unwindFromSave(segue: UIStoryboardSegue) {
@@ -29,26 +36,24 @@ class TableViewController: UITableViewController {
             return
         }
         
-        if let entity = self.entity {
-            // Create a new card record
-            let card = NSManagedObject(entity: entity, insertInto: context)
-            // Set the attributes in the new card record
-            card.setValue(source.setTitleResult, forKey: "storeTitle")
-            card.setValue(source.questionResult, forKey: "storeQuestion")
-            card.setValue(source.answerResult, forKey: "storeAnswer")
-            card.setValue(source.cardNum, forKey: "storeCardNum")
-            
-            do {
-               // Update the data store with the managed context
-                try context?.save()
-                // Add this record to the table view data source
-                dataSource.append(card)
-                // Reload the data in the table view
-                self.tableView.reloadData()
-            }
-            catch let error as NSError {
-                print("Cannot save data: \(error)")
-            }
+        // Create a new card record
+        let card = FlashCard(context: context!)
+        // Set the attributes in the new card record
+        card.storeTitle = source.setTitleResult
+        card.storeQuestion = source.questionResult
+        card.storeAnswer = source.answerResult
+        card.storeCardNum = source.cardNum
+        
+        do {
+            // Update the data store with the managed context
+            try context?.save()
+            // Add this record to the table view data source
+            dataSource.append(card)
+            // Reload the data in the table view
+            self.tableView.reloadData()
+        }
+        catch let error as NSError {
+            print("Cannot save data: \(error)")
         }
     }
 
@@ -68,20 +73,8 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCells", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = dataSource[indexPath[1]].value(forKey: "storeTitle") as? String
-        cell.detailTextLabel?.text = dataSource[indexPath[1]].value(forKey: "storeCardNum") as? String
+        cell.textLabel?.text = dataSource[indexPath[1]].storeTitle
+        cell.detailTextLabel?.text = String(dataSource[indexPath[1]].storeCardNum)
         return cell
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // Fetch the database content
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FlashCard")
-        
-        do{
-            dataSource = try context?.fetch(fetchRequest) ?? []
-        }
-        catch let error as NSError {
-            print("Cannot load data: \(error)")
-        }
     }
 }
