@@ -29,12 +29,11 @@ class CreateSetViewController: UIViewController {
     }
     
     @IBAction func CreateSetButtonTapped(_ sender: Any) {
-        
     }
     
     // Create var to store to CoreData -Jeremiah
     var setTitleResult = ""
-    var questionResult = ""
+    var questionResult: [String] = []
     var answerResult = ""
     var cardNum: Int32 = 0
     
@@ -47,9 +46,10 @@ class CreateSetViewController: UIViewController {
     // Prepare segue values to use for CoreData -Jeremiah
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         setTitleResult = setTitleTextField.text ?? "Needs Proper Title"
-        questionResult = questionTextView.text ?? "Needs Proper Question"
+        questionResult = questionArray
         answerResult = answerTextView.text ?? "Needs Proper Answer"
         cardNum = Int32(questionArray.count)
         
     }
 }
+
