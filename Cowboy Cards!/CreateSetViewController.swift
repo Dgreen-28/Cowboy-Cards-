@@ -16,6 +16,10 @@ class CreateSetViewController: UIViewController {
     @IBOutlet weak var answerTextView: UITextView!
     
     @IBAction func NextCardButtonTapped(_ sender: Any) {
+        
+        if (answerTextView.hasText && questionTextView.hasText && setTitleTextField.hasText)
+//fix       setTitleTextField.hasText put itwith the create set button
+        {
         questionArray.append(questionTextView.text)
         answerArray.append(answerTextView.text)
 
@@ -24,13 +28,14 @@ class CreateSetViewController: UIViewController {
 
         print(questionArray)
         print(answerArray)
-
+        }
         
     }
     
     @IBAction func CreateSetButtonTapped(_ sender: Any) {
         
     }
+    
     
     // Create var to store to CoreData -Jeremiah
     var setTitleResult = ""
