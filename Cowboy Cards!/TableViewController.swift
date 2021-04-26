@@ -59,10 +59,13 @@ class TableViewController: UITableViewController {
     
     // Prepare segue values to use for CoreData -Jeremiah
     // I believe this is the key to getting the data to the study view
+    
+    // Create vars to store to CoreData -Jeremiah
+    var setTitle = ""
+    var setQuestion = ""
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let card = FlashCard(context: context!)
-        //var title = card.storeTitle
-        //var question = card.storeQuestion
+        
         
     }
 
@@ -102,7 +105,8 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = dataSource[indexPath[1]].storeTitle
-        cell.detailTextLabel?.text = String(dataSource[indexPath[1]].storeCardNum)
+        cell.detailTextLabel?.text = String(dataSource[indexPath[1]].storeCardNum) + " Cards"
+        
         return cell
     }
 }
