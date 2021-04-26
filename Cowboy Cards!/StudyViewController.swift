@@ -13,12 +13,29 @@ class StudyViewController: UIViewController{
     var dataSource: [DisplayCard] = []
     var appDelegate: AppDelegate?
     var context: NSManagedObjectContext?
+    var index = 0
+    //Should be set to the count of the cards minus 1
+    var last = 3
     
     @IBOutlet weak var titleLabel: UILabel!
 
     @IBOutlet weak var QuestionLabel: UILabel!
     
     @IBAction func lastCardButton(_ sender: Any) {
+        if(index == 0)
+        {
+            //Should not go back since at start
+            let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            let startController = UIAlertController(title: "Start of Set", message: "You are at the start of your Flashcards", preferredStyle: .alert)
+            
+            startController.addAction(okayAction)
+            
+            present(startController, animated: true, completion: nil)
+        }
+        else
+        {
+            index -= 1
+        }
     }
     
     @IBAction func flipCardButton(_ sender: Any) {
@@ -34,7 +51,21 @@ class StudyViewController: UIViewController{
     }
     
     @IBAction func nextCardButton(_ sender: Any) {
+        if(index == last){
+            //Should not go to next since at end
+            let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            let endController = UIAlertController(title: "End of Set", message: "You are at the end of your Flashcards", preferredStyle: .alert)
+            
+            endController.addAction(okayAction)
+            
+            present(endController, animated: true, completion: nil)
+        }
+        else
+        {
+            index += 1
+        }
     }
+    
     @IBOutlet weak var cardView: UITextView!
     
     override func viewDidLoad() {
