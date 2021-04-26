@@ -28,7 +28,7 @@ class TableViewController: UITableViewController {
             print("Cannot load data: \(error)")
         }
     }
-    
+
     @IBAction func unwindFromSave(segue: UIStoryboardSegue) {
         // Get the segue source - Jeremiah
         guard let source = segue.source as? CreateSetViewController else {
@@ -55,6 +55,15 @@ class TableViewController: UITableViewController {
         catch let error as NSError {
             print("Cannot save data: \(error)")
         }
+    }
+    
+    // Prepare segue values to use for CoreData -Jeremiah
+    // I believe this is the key to getting the data to the study view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let card = FlashCard(context: context!)
+        //var title = card.storeTitle
+        //var question = card.storeQuestion
+        
     }
 
     // MARK: - Table view data source

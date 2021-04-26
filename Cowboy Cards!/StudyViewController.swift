@@ -9,11 +9,9 @@ import UIKit
 import CoreData
 
 class StudyViewController: UIViewController{
-    var dataSource: [NSManagedObject] = []
+    var dataSource: [DisplayCard] = []
     var appDelegate: AppDelegate?
     var context: NSManagedObjectContext?
-    var entity: NSEntityDescription?
-    var tvc = TableViewController()
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -32,7 +30,29 @@ class StudyViewController: UIViewController{
     
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         context = appDelegate?.persistentContainer.viewContext
-        entity = NSEntityDescription.entity(forEntityName: "FlashCard", in: context!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        do{
+            dataSource = try context?.fetch(DisplayCard.fetchRequest()) ?? []
+        }
+        catch let error as NSError {
+            print("Cannot load data: \(error)")
+        }
+    }
+    
+    // Should unwind the values from the table to display, but couldn't figure it out
+    @IBAction func unwindFromSave(segue: UIStoryboardSegue){
+        // Get the segue source
+        //guard let source = segue.source as? TableViewController else {
+            //print("Cannot get segue source")
+            //return
+        //}
         
+        // Create a new display record
+        //let display = FlashCard(context: context!)
+        // Set the attributes of the display
+        //titleLabel.text = display.storeTitle
+        //cardView.text = display.storeQuestion
     }
 }

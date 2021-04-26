@@ -33,13 +33,12 @@ class CreateSetViewController: UIViewController {
     }
     
     @IBAction func CreateSetButtonTapped(_ sender: Any) {
-        
     }
     
     
     // Create var to store to CoreData -Jeremiah
     var setTitleResult = ""
-    var questionResult = ""
+    var questionResult = "" // This should be an array value in order to store all values
     var answerResult = ""
     var cardNum: Int32 = 0
     
@@ -58,3 +57,4 @@ class CreateSetViewController: UIViewController {
         
     }
 }
+
