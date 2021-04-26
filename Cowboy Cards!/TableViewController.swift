@@ -77,6 +77,25 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return dataSource.count
     }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            dataSource.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.reloadData()
+//
+//        } else if editingStyle == .insert {
+            
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+  //      }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dataSource.remove(at: indexPath.row)
+            //may have to "context" & "appDelegate"
+            tableView.reloadData()
+        }
+        
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCells", for: indexPath)

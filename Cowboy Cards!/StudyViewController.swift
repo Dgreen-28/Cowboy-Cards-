@@ -9,16 +9,28 @@ import UIKit
 import CoreData
 
 class StudyViewController: UIViewController{
+    var stupidLoop = 3
     var dataSource: [DisplayCard] = []
     var appDelegate: AppDelegate?
     var context: NSManagedObjectContext?
     
     @IBOutlet weak var titleLabel: UILabel!
+
+    @IBOutlet weak var QuestionLabel: UILabel!
     
     @IBAction func lastCardButton(_ sender: Any) {
     }
     
     @IBAction func flipCardButton(_ sender: Any) {
+        if( stupidLoop % 2 == 0)
+        {
+        QuestionLabel.text = "Question:"
+        }
+        else
+        {
+        QuestionLabel.text = "Answer:"
+        }
+        self.stupidLoop+=1
     }
     
     @IBAction func nextCardButton(_ sender: Any) {

@@ -11,7 +11,6 @@
 		3236813C262F73FC001D0823 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236813B262F73FC001D0823 /* StudyViewController.swift */; };
 		324ED8E5261CF65400081344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324ED8E4261CF65400081344 /* AppDelegate.swift */; };
 		324ED8E7261CF65400081344 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324ED8E6261CF65400081344 /* SceneDelegate.swift */; };
-		324ED8E9261CF65400081344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324ED8E8261CF65400081344 /* ViewController.swift */; };
 		324ED8EC261CF65400081344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324ED8EA261CF65400081344 /* Main.storyboard */; };
 		324ED8EE261CF65700081344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324ED8ED261CF65700081344 /* Assets.xcassets */; };
 		324ED8F1261CF65700081344 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324ED8EF261CF65700081344 /* LaunchScreen.storyboard */; };
@@ -29,7 +28,6 @@
 		324ED8E1261CF65400081344 /* Cowboy Cards!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cowboy Cards!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324ED8E4261CF65400081344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		324ED8E6261CF65400081344 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		324ED8E8261CF65400081344 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		324ED8EB261CF65400081344 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		324ED8ED261CF65700081344 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324ED8F0261CF65700081344 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				32368138262F7360001D0823 /* CreateSetViewController.swift */,
 				3236813B262F73FC001D0823 /* StudyViewController.swift */,
 				8EF0D13B262F77A700A4609B /* TableViewController.swift */,
-				324ED8E8261CF65400081344 /* ViewController.swift */,
 				324ED8EA261CF65400081344 /* Main.storyboard */,
 				324ED8ED261CF65700081344 /* Assets.xcassets */,
 				324ED8EF261CF65700081344 /* LaunchScreen.storyboard */,
@@ -163,7 +160,6 @@
 			files = (
 				3236813C262F73FC001D0823 /* StudyViewController.swift in Sources */,
 				8EF0D13C262F77A700A4609B /* TableViewController.swift in Sources */,
-				324ED8E9261CF65400081344 /* ViewController.swift in Sources */,
 				8EF0D141262F7D8C00A4609B /* CowboyCardsData.xcdatamodeld in Sources */,
 				8E0B62BD263383DC0053F855 /* DisplayCard+CoreDataClass.swift in Sources */,
 				8E0B62BB263383DC0053F855 /* FlashCard+CoreDataClass.swift in Sources */,
