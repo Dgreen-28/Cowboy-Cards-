@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     var appDelegate: AppDelegate?
     var context: NSManagedObjectContext?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,18 +57,6 @@ class TableViewController: UITableViewController {
             print("Cannot save data: \(error)")
         }
     }
-    
-    // Prepare segue values to use for CoreData -Jeremiah
-    // I believe this is the key to getting the data to the study view
-    
-    // Create vars to store to CoreData -Jeremiah
-    var setTitle = ""
-    var setQuestion = ""
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-    }
 
     // MARK: - Table view data source
 
@@ -103,10 +92,42 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCells", for: indexPath)
 
-        // Configure the cell...
+        // Configure the cell
         cell.textLabel?.text = dataSource[indexPath[1]].storeTitle
         cell.detailTextLabel?.text = String(dataSource[indexPath[1]].storeCardNum) + " Cards"
         
         return cell
+    }
+    
+    //Select cell func
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        // Set title for prepare func
+        let setTitle = dataSource[indexPath[1]].storeTitle ?? "No Title"
+        getTitle = setTitle
+        // Set question for prepare func
+        let setQuestion = dataSource[indexPath[1]].storeQuestion ?? "No Question"
+        getQuestion = setQuestion
+        // Set answer for prepare func
+        let setAnswer = dataSource[indexPath[1]].storeAnswer ?? "No Answer"
+        getAnswer = setAnswer
+        // Perform segue
+        //performSegue(withIdentifier: "toStudy", sender: self)
+    }
+    
+    // Create vars to store to CoreData -Jeremiah
+    var getTitle = ""
+    var getQuestion = ""
+    var getAnswer = ""
+    // Prepare segue values to send to Study View
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let nvc = segue.destination as! UINavigationController
+        //let studyView = nvc.topViewController as! StudyViewController
+        //studyView.titleLabel.text = setTitle
+        var findTitle = getTitle
+        var findQuestion = getQuestion
+        var findAnswer = getAnswer
+        print(findTitle)
+        print(getQuestion)
+        print(getAnswer)
     }
 }

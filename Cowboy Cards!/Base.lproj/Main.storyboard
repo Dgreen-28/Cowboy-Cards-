@@ -42,7 +42,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="jg2-C6-c3q" kind="presentation" modalPresentationStyle="fullScreen" id="9fR-9u-GsG"/>
-                                    <segue destination="pY7-UQ-SxC" kind="unwind" trigger="accessoryAction" unwindAction="unwindFromSaveWithSegue:" id="phB-Jq-Mnf"/>
+                                    <segue destination="pY7-UQ-SxC" kind="unwind" identifier="toStudy" trigger="accessoryAction" unwindAction="unwindFromSaveWithSegue:" id="phB-Jq-Mnf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -210,9 +210,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3W-HM-0W3">
-                                <rect key="frame" x="151.5" y="103" width="111.5" height="31.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3W-HM-0W3">
+                                <rect key="frame" x="149.5" y="103" width="115.5" height="31.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
