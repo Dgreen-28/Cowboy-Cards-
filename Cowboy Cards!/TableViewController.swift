@@ -13,6 +13,10 @@ class TableViewController: UITableViewController {
     var appDelegate: AppDelegate?
     var context: NSManagedObjectContext?
 
+    // Create vars to store to CoreData -Jeremiah
+    var getQuestionArray: [String] = []
+    var getAnswerArray: [String] = []
+    var getAnswer: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,8 @@ class TableViewController: UITableViewController {
         card.storeQuestion = source.questionResult
         card.storeAnswer = source.answerResult
         card.storeCardNum = source.cardNum
+        card.storeQuestionArray = source.questionArrayResult
+        card.storeAnswerArray = source.answerArrayResult
         
         do {
             // Update the data store with the managed context
@@ -70,23 +76,26 @@ class TableViewController: UITableViewController {
         return dataSource.count
     }
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            dataSource.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//            tableView.reloadData()
-//
-//        } else if editingStyle == .insert {
-            
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-  //      }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dataSource.remove(at: indexPath.row)
-            //may have to "context" & "appDelegate"
-            tableView.reloadData()
+            //Create an alert after pressing the delete button
+            let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
+            deleteAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { action in
+                    let index = self.dataSource[indexPath.row]
+                    self.context?.delete(index)
+                    self.dataSource.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    do{
+                        try self.context?.save()
+                        self.tableView.reloadData()
+                    } catch let error as NSError {
+                        print("Cannot save data: \(error)")
+                    }
+            }))
+            deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
+            //show alert
+            self.present(deleteAlert, animated: true, completion: nil)
         }
-        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,35 +108,14 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    //Select cell func
+    //Select cell func that pushes data to StudyView
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        // Set title for prepare func
-        let setTitle = dataSource[indexPath[1]].storeTitle ?? "No Title"
-        getTitle = setTitle
-        // Set question for prepare func
-        let setQuestion = dataSource[indexPath[1]].storeQuestion ?? "No Question"
-        getQuestion = setQuestion
-        // Set answer for prepare func
-        let setAnswer = dataSource[indexPath[1]].storeAnswer ?? "No Answer"
-        getAnswer = setAnswer
-        // Perform segue
-        //performSegue(withIdentifier: "toStudy", sender: self)
-    }
-    
-    // Create vars to store to CoreData -Jeremiah
-    var getTitle = ""
-    var getQuestion = ""
-    var getAnswer = ""
-    // Prepare segue values to send to Study View
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let nvc = segue.destination as! UINavigationController
-        //let studyView = nvc.topViewController as! StudyViewController
-        //studyView.titleLabel.text = setTitle
-        var findTitle = getTitle
-        var findQuestion = getQuestion
-        var findAnswer = getAnswer
-        print(findTitle)
-        print(getQuestion)
-        print(getAnswer)
+        // Create an instance of StudyView to store data properly
+        let svc = storyboard?.instantiateViewController(identifier: "StudyViewController") as! StudyViewController
+        svc.studyTitle = dataSource[indexPath[1]].storeTitle ?? "No Title"
+        svc.studyQuestion = dataSource[indexPath[1]].storeQuestion ?? "No Question"
+        svc.studyAnswer = dataSource[indexPath[1]].storeAnswer ?? "No Answer"
+        // Show StudyView without needing to segue
+        self.show(svc, sender: self)
     }
 }

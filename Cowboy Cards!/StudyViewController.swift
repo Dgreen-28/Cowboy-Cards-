@@ -16,6 +16,12 @@ class StudyViewController: UIViewController {
     var index = 0
     //Should be set to the count of the cards minus 1
     var last = 3
+    // Create these values in order to take data from the TableView - Jeremiah
+    var studyTitle: String = ""
+    var studyQuestion = ""
+    var studyAnswer = ""
+    var questionArrayValues: [String] = [] // This should be used for data in CreateSet questionArray
+    var answerArrayValues: [String] = [] // This should be used for data in CreateSet answerArray
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var QuestionLabel: UILabel!
@@ -66,41 +72,24 @@ class StudyViewController: UIViewController {
     
     @IBOutlet weak var cardView: UITextView!
     
-    // Should unwind the values from the table to display, but couldn't figure it out
-    @IBAction func unwindFromSave(segue: UIStoryboardSegue) {
-        // Get the segue source - Jeremiah
-        guard let source = segue.source as? TableViewController else {
-            print("Cannot get segue data")
-            return
-        }
-        
-        // Create a new display record
-        //let display = FlashCard(context: context!)
-        // Set the attributes of the display
-        titleLabel.text = source.getTitle
-        QuestionLabel.text = source.getQuestion
-        
-        do {
-            // Update the data store with the managed context
-            try context?.save()
-            // Add this record to the study view data source
-            //dataSource.append(display)
-            // Reload the data in the study view
-            self.reloadInputViews()
-        }
-        catch let error as NSError {
-            print("Cannot save data: \(error)")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         context = appDelegate?.persistentContainer.viewContext
         
-        //titleLabel.text
-        //cardView.text = ""
+        print(studyTitle)
+        print(studyQuestion)
+        titleLabel.text = studyTitle
+        //cardView.text = studyQuestion
+        cardView.isEditable = false
+        QuestionLabel.text = "Question:"
+        
+        print(questionArrayValues)
+        print(answerArrayValues)
+        
+        let csc = storyboard?.instantiateViewController(identifier: "CreateSetViewController") as! CreateSetViewController
+        cardView.text = csc.questionResult
     }
     
     override func viewWillAppear(_ animated: Bool) {

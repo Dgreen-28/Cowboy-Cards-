@@ -2,7 +2,7 @@
 //  DisplayCard+CoreDataProperties.swift
 //  Cowboy Cards!
 //
-//  Created by Jeremiah Jaylen Pete on 4/23/21.
+//  Created by Jeremiah Jaylen Pete on 4/28/21.
 //
 //
 
@@ -20,24 +20,6 @@ extension DisplayCard {
     @NSManaged public var nextCard: String?
     @NSManaged public var prevCard: String?
     @NSManaged public var titleDisplay: String?
-    @NSManaged public var cardData: NSSet?
-
-}
-
-// MARK: Generated accessors for cardData
-extension DisplayCard {
-
-    @objc(addCardDataObject:)
-    @NSManaged public func addToCardData(_ value: FlashCard)
-
-    @objc(removeCardDataObject:)
-    @NSManaged public func removeFromCardData(_ value: FlashCard)
-
-    @objc(addCardData:)
-    @NSManaged public func addToCardData(_ values: NSSet)
-
-    @objc(removeCardData:)
-    @NSManaged public func removeFromCardData(_ values: NSSet)
 
 }
 
